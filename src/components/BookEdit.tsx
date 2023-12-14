@@ -2,7 +2,7 @@ import {ChangeEvent, FormEvent, useState} from "react";
 import {BookEditProp} from "./types";
 
 function BookEdit(props: BookEditProp) {
-  const [bookName, setBookName] = useState(props.book.name)
+  const [bookName, setBookName] = useState(props.book.title)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setBookName(event.target.value)
@@ -10,7 +10,7 @@ function BookEdit(props: BookEditProp) {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
-    props.toggleEditView({...props.book, name: bookName})
+    props.toggleEditView({...props.book, title: bookName})
   }
 
   return (

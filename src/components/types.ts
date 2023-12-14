@@ -1,6 +1,6 @@
 export type Book = {
   id: number
-  name: string
+  title: string
 }
 
 export type BookCreateProp = {

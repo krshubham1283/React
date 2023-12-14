@@ -15,7 +15,7 @@ function BookShow(prop: BookShowProp) {
     prop.onDelete(prop.book.id)
   }
 
-  let content = showEdit ? <BookEdit book={prop.book} toggleEditView={handleEditClick}/> : prop.book.name
+  let content = showEdit ? <BookEdit book={prop.book} toggleEditView={handleEditClick}/> : prop.book.title
 
   return (
     <div className='book-show'>
