@@ -1,10 +1,11 @@
-import {BookListProp} from "./types";
 import BookShow from "./BookShow";
+import useBooksContext from '../hooks/useBooksContext'
 
-function BookList(props: BookListProp) {
+function BookList() {
 
-  const renderedBooks = props.books.map((book) => {
-    return <BookShow key={book.id} book={book} onDelete={props.onDelete} onEdit={props.onEdit}/>
+  const booksContext = useBooksContext()
+  const renderedBooks = booksContext?.books.map((book) => {
+    return <BookShow key={book.id} book={book}/>
   })
 
   return (

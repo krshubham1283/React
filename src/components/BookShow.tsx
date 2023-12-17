@@ -1,21 +1,23 @@
 import {Book, BookShowProp} from "./types";
 import {useState} from "react";
 import BookEdit from "./BookEdit";
+import useBooksContext from '../hooks/useBooksContext'
 
 function BookShow(prop: BookShowProp) {
 
   const [showEdit, toggleEdit] = useState(false)
+  const booksContext = useBooksContext()
 
   const handleEditClick = (book: Book) => {
     toggleEdit(!showEdit)
-    prop.onEdit(book)
+    booksContext?.editBookById(book)
   }
 
   const handleClick = () => {
-    prop.onDelete(prop.book.id)
+    booksContext?.deleteBookById(prop.book.id)
   }
 
-  let content = showEdit ? <BookEdit book={prop.book} toggleEditView={handleEditClick}/> : prop.book.title
+  const content = showEdit ? <BookEdit book={prop.book} toggleEditView={handleEditClick}/> : prop.book.title
 
   return (
     <div className='book-show'>
