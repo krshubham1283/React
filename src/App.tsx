@@ -1,21 +1,29 @@
-import {useEffect} from "react";
-import BookCreate from "./components/BookCreate";
-import BookList from "./components/BookList";
-import useBooksContext from './hooks/useBooksContext'
+import Button from "./Button";
+import {GoBell} from 'react-icons/go'
 
 function App() {
 
-  const {fetchBooks} = useBooksContext()
-
-  useEffect(() => {
-    fetchBooks()
-  }, [])
+  const handleClick = () => {
+    console.log('Click!!')
+  }
 
   return (
-    <div className='app'>
-      <h1>Reading Books</h1>
-      <BookList/>
-      <BookCreate/>
+    <div>
+      <div>
+        <Button primary rounded outline onClick={handleClick} className='mb-5'> <GoBell/> Click Me !!</Button>
+      </div>
+      <div>
+        <Button secondary>Click Me!</Button>
+      </div>
+      <div>
+        <Button warning>Click Me!</Button>
+      </div>
+      <div>
+        <Button success>Click Me!</Button>
+      </div>
+      <div>
+        <Button danger>Click Me!</Button>
+      </div>
     </div>
   )
 }
